@@ -1,7 +1,3 @@
-<?php
-require_once 'includes/session_config.php';
-require_once 'includes/register_view.inc.php';
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,14 +6,12 @@ require_once 'includes/register_view.inc.php';
     <title>Document</title>
 </head>
 <body>
-    <form action="includes/register.inc.php" method="post">
+<form action="includes/register.inc.php" method="post">
         <input type="text" name="name" placeholder="Name">
-        <input type="text" name="email" placeholder="Email">
+       
         <input type="password" name="password" placeholder="Password">
-        <input type="submit" name="submit" value="Register">
+        <input type="submit" name="submit" value="login">
     </form>
-    <?php
-        check_signup_errors();
-    ?>
+    
 </body>
 </html>

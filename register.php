@@ -1,8 +1,16 @@
+<<<<<<< HEAD
+=======
+<?php
+require_once 'includes/session_config.php';
+require_once 'includes/register_view.inc.php';
+?>
+>>>>>>> 5ea3d7a921c24621c0f3f4269d85a51b6cfbe063
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD
     <title>Authentication</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -76,3 +84,19 @@
     </script>
 </body>
 </html>
+=======
+    <title>Document</title>
+</head>
+<body>
+    <form action="includes/register.inc.php" method="post">
+        <input type="text" name="name" placeholder="Name">
+        <input type="text" name="email" placeholder="Email">
+        <input type="password" name="password" placeholder="Password">
+        <input type="submit" name="submit" value="Register">
+    </form>
+    <?php
+        check_signup_errors();
+    ?>
+</body>
+</html>
+>>>>>>> 5ea3d7a921c24621c0f3f4269d85a51b6cfbe063

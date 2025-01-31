@@ -1,16 +1,13 @@
-<<<<<<< HEAD
-=======
+
 <?php
 require_once 'includes/session_config.php';
 require_once 'includes/register_view.inc.php';
 ?>
->>>>>>> 5ea3d7a921c24621c0f3f4269d85a51b6cfbe063
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<<<<<<< HEAD
     <title>Authentication</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -84,7 +81,6 @@ require_once 'includes/register_view.inc.php';
     </script>
 </body>
 </html>
-=======
     <title>Document</title>
 </head>
 <body>
@@ -99,4 +95,4 @@ require_once 'includes/register_view.inc.php';
     ?>
 </body>
 </html>
->>>>>>> 5ea3d7a921c24621c0f3f4269d85a51b6cfbe063
+

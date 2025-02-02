@@ -23,10 +23,20 @@
         <h1>Manage Events</h1>
 
         <!-- Event Creation Form -->
-        <form>
-            <input type="text" placeholder="Event Name" required>
-            <input type="date" required>
-            <textarea placeholder="Event Description" required></textarea>
+        <form action="includes/dashbaord.inc.php" method="post">
+            <input type="text" name="name" placeholder="Event Name" required>
+            <textarea placeholder="Event Description" name = "description" required></textarea>
+            <input type="text" placeholder="Event Location" name = "location" required>
+            <input type="date" name="date" required>
+            <label for="status">Choose Status:</label>
+            <select name="status" id="status" required>
+                <option value="Upcoming" selected>Upcoming</option>
+                <option value="Ongoing">Ongoing</option>
+                <option value="Completed">Completed</option>
+                <option value="Cancelled">Cancelled</option>
+            </select>
+            
+          
             <button type="submit">Add Event</button>
         </form>
 

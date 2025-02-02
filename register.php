@@ -1,4 +1,3 @@
-
 <?php
 require_once 'includes/session_config.php';
 require_once 'includes/register_view.inc.php';
@@ -9,39 +8,24 @@ require_once 'includes/register_view.inc.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Authentication</title>
-    <link rel="stylesheet" href="style.css">
+    
 </head>
 <body>
     <div class="container">
-        <div class="form-box">
+        <div class="form-box" id="form-container">
             <img src="c:\Users\user\Downloads\BLACK LOGO.JPG" alt="event manager ai" class="logo" />
 
             <!-- REGISTER FORM -->
             <div id="register-form">
                 <h1>Register</h1>
                 <form action="includes/register.inc.php" method="post">
-                    <input type="text" placeholder="First Name" required>
-                    <input type="text" placeholder="Last Name" required>
-                    <input type="email" placeholder="Email" required>
+                    <input type="text" name="name" placeholder="First Name" required>
+                    <input type="email" name="email" placeholder="Email" required>
+                    <input type="password" name="password" placeholder="Password" required>
                     <button type="submit">SIGN UP</button>
                 </form>
                 <div class="register-forget opacity">
-                    <a href="#" onclick="showLogin()">Log In</a>
-                    <a href="#" onclick="showForgotPassword()">Forgot Password?</a>
-                </div>
-            </div>
-
-            <!-- LOGIN FORM -->
-            <div id="login-form" style="display: none;">
-                <h1><Span>Log In</Span></h1>
-                <form action="includes/login.inc.php" method="post">
-                    <input type="text" placeholder="First Name" required>
-                    <input type="text" placeholder="Last Name" required>
-                    <input type="email" placeholder="Email" required>
-                    <button type="submit">LOG IN</button>
-                </form>
-                <div class="register-forget opacity">
-                    <a href="#" onclick="showRegister()">Register</a>
+                    <a href="login.php" onclick="showLogin()">Log In</a>
                     <a href="#" onclick="showForgotPassword()">Forgot Password?</a>
                 </div>
             </div>
@@ -54,7 +38,7 @@ require_once 'includes/register_view.inc.php';
                     <button type="submit">RESET PASSWORD</button>
                 </form>
                 <div class="register-forget opacity">
-                    <a href="#" onclick="showLogin()">Back to Login</a>
+                    <a href="#" onclick="showRegister()">Back to Register</a>
                 </div>
             </div>
         </div>
@@ -62,37 +46,27 @@ require_once 'includes/register_view.inc.php';
 
     <script>
         function showLogin() {
-            document.getElementById("register-form").style.display = "none";
-            document.getElementById("login-form").style.display = "block";
-            document.getElementById("forgot-password-form").style.display = "none";
+            fetch("login.php")
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("form-container").innerHTML = data;
+                })
+                .catch(error => console.error('Error loading login page:', error));
         }
 
         function showRegister() {
             document.getElementById("register-form").style.display = "block";
-            document.getElementById("login-form").style.display = "none";
             document.getElementById("forgot-password-form").style.display = "none";
         }
 
         function showForgotPassword() {
             document.getElementById("register-form").style.display = "none";
-            document.getElementById("login-form").style.display = "none";
             document.getElementById("forgot-password-form").style.display = "block";
         }
-    </script>
+   
+   </script>
+   <?php
+   check_signup_errors();
+   ?>
 </body>
 </html>
-    <title>Document</title>
-</head>
-<body>
-    <form action="includes/register.inc.php" method="post">
-        <input type="text" name="name" placeholder="Name">
-        <input type="text" name="email" placeholder="Email">
-        <input type="password" name="password" placeholder="Password">
-        <input type="submit" name="submit" value="Register">
-    </form>
-    <?php
-        check_signup_errors();
-    ?>
-</body>
-</html>
-

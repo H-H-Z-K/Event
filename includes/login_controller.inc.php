@@ -11,12 +11,12 @@ function is_empty(string $name, string  $pass){
 
 
 function is_user_exists(object $pdo, string $name,string $pass){
-    if(!get_user( $pdo, $name,$pass)){
-        return true;
-    }
-    else{
-    return false;
-    }
+    if (get_user($pdo, $name, $pass)) {
+        return false; // User exists
+    } else {
+        return true; // User doesn't exist or password is incorrect
+    
+}
 }
 function login_user(object $pdo, string $name, string $pass){
     

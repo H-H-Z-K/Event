@@ -11,7 +11,7 @@ function is_empty(string $name, string  $pass){
 
 
 function is_user_exists(object $pdo, string $name,string $pass){
-    if(get_user( $pdo, $name,$pass)){
+    if(!get_user( $pdo, $name,$pass)){
         return true;
     }
     else{
@@ -19,11 +19,13 @@ function is_user_exists(object $pdo, string $name,string $pass){
     }
 }
 function login_user(object $pdo, string $name, string $pass){
-    if(get_user( $pdo, $name,$pass)){
-        return true;
-    }
-    else{
-    return false;
-    }
+    
+  $user=get_user( $pdo, $name,$pass);
+  if($user['role'] == 'admin'){
+      header("Location: ../dashbaord.php?login=success");
+  }
+  else{
+      header("Location: ../main.php?login=success");
+  }
 
 }

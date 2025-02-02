@@ -23,7 +23,7 @@
 
             }
             login_user($pdo, $name, $pass);
-            header("Location: ../main.php?login=success");
+      
             $pdo=null;
             $stmt=null;
             die();

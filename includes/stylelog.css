@@ -6,7 +6,7 @@
 }
 
 body {
-    background: url('images/event manager.webp') no-repeat center center/cover;
+    background: url('c:\xampp\htdocs\Event-1\images\event manager.webp') no-repeat center center/cover;
     display: grid;
     place-items: center;
     justify-content: center;
@@ -14,8 +14,6 @@ body {
     height: 100vh;
     padding-top: 100px;
 }
-
-/* Container for the forms */
 .container {
     padding-bottom: 20px;
     padding-left: 10px;
@@ -32,9 +30,7 @@ body {
     justify-content: center; /* Center contents */
     align-items: center;
 }
-
-/* Logo */
-.logo {
+logo {
     width: 130px;
     height: auto; 
     display: block;
@@ -44,23 +40,18 @@ body {
     margin-left: auto;
     margin-right: auto;
 }
-
-/* Titles */
 h2{
     font-size: 40px;
     font-weight: 600;
     margin-bottom: 10px;
 }
-
-/* Form Styling */
 form {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: auto;
 }
-
-input[type="text"], input[type="email"] , input[type= "password"]{
+input[type="text"], input[type= "password"]{
     width: 100%;
     padding: 10px;
     margin: 8px 0;
@@ -68,7 +59,6 @@ input[type="text"], input[type="email"] , input[type= "password"]{
     border-radius: 5px;
     font-size: 14px;
 }
-
 button {
     background: black;
     color: white;
@@ -85,14 +75,6 @@ button {
 button:hover {
     background: #333;
 }
-
-
-/* Smooth transition between forms */
-#register-form, #login-form {
-    display: flexbox;
-    animation: fadeIn 0.5s ease-in-out;
-}
-
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -102,9 +84,4 @@ button:hover {
         opacity: 1;
         transform: translateY(0);
     }
-}
-
-/* Show register form by default */
-#register-form {
-    display: block;
 }

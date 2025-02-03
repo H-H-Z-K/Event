@@ -30,7 +30,7 @@ body {
     justify-content: center; /* Center contents */
     align-items: center;
 }
-logo {
+.logo {
     width: 130px;
     height: auto; 
     display: block;

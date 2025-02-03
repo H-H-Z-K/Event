@@ -8,6 +8,7 @@ require_once 'includes/register_view.inc.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Authentication</title>
+    <link rel="stylesheet" href="stylereg.css">
     
 </head>
 <body>
@@ -26,19 +27,6 @@ require_once 'includes/register_view.inc.php';
                 </form>
                 <div class="register-forget opacity">
                     <a href="login.php" onclick="showLogin()">Log In</a>
-                    <a href="#" onclick="showForgotPassword()">Forgot Password?</a>
-                </div>
-            </div>
-
-            <!-- FORGOT PASSWORD FORM -->
-            <div id="forgot-password-form" style="display: none;">
-                <h1>Reset Password</h1>
-                <form action="includes/reset-password.inc.php" method="post">
-                    <input type="email" placeholder="Enter Your Email" required>
-                    <button type="submit">RESET PASSWORD</button>
-                </form>
-                <div class="register-forget opacity">
-                    <a href="#" onclick="showRegister()">Back to Register</a>
                 </div>
             </div>
         </div>
@@ -57,11 +45,6 @@ require_once 'includes/register_view.inc.php';
         function showRegister() {
             document.getElementById("register-form").style.display = "block";
             document.getElementById("forgot-password-form").style.display = "none";
-        }
-
-        function showForgotPassword() {
-            document.getElementById("register-form").style.display = "none";
-            document.getElementById("forgot-password-form").style.display = "block";
         }
    
    </script>

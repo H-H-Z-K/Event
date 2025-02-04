@@ -11,7 +11,7 @@ $events = list_event($pdo);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
-    <link rel="stylesheet" href="styles.css">
+
 </head>
 <body>
 
@@ -20,7 +20,7 @@ $events = list_event($pdo);
         <h2>Admin Dashboard</h2>
         <ul>
             <li><a href="#">Manage Events</a></li>
-            <li><a href="#">Manage Users</a></li>
+            <li><a href="users.php">Manage Users</a></li>
             <li><a href="#">Logout</a></li>
         </ul>
     </div>

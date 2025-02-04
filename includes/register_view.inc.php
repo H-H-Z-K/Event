@@ -14,7 +14,7 @@ function check_signup_errors() {
     }
     elseif(isset($_GET["signup"])&& $_GET["signup"]=="success"){
         echo "<br>";
-        echo "<h1>Registration successful</h1>";
+        echo "<h3>Registration successful</h3>";
     }
 }
 

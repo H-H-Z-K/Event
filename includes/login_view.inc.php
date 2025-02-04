@@ -14,7 +14,7 @@ function check_signup_errors() {
     }
     elseif(isset($_GET["login"])&& $_GET["login"]=="success"){
         echo "<br>";
-        echo "<h1>login successful</h1>";
+        echo "<h3>login successful</h3>";
     }
 }
 

@@ -14,11 +14,11 @@ require_once 'includes/register_view.inc.php';
 <body>
     <div class="container">
         <div class="form-box" id="form-container">
-            <img src="c:\Users\user\Downloads\BLACK LOGO.JPG" alt="event manager ai" class="logo" />
+            <img src="images/BLACK LOGO.JPG" alt="event manager ai" class="logo" />
 
             <!-- REGISTER FORM -->
             <div id="register-form">
-                <h1>Register</h1>
+                <h2>Register</h2>
                 <form action="includes/register.inc.php" method="post">
                     <input type="text" name="name" placeholder="First Name" required>
                     <input type="email" name="email" placeholder="Email" required>

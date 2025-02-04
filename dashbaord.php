@@ -20,7 +20,7 @@ $events = list_event($pdo);
         <h2>Admin Dashboard</h2>
         <ul>
             <li><a href="#">Manage Events</a></li>
-            <li><a href="#">Manage Users</a></li>
+            <li><a href="users.php">Manage Users</a></li>
             <li><a href="#">Logout</a></li>
         </ul>
     </div>

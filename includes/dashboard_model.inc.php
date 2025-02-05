@@ -20,9 +20,9 @@
         $stmt->bindParam(':date', $date);
         $stmt->bindParam(':status', $status);
         $stmt->execute();
-  
+
+    } 
         
-    }
     function list_event(object $pdo){
         $query = "SELECT * FROM events ORDER BY date ASC";
         $stmt = $pdo->query($query);

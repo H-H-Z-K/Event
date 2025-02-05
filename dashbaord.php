@@ -11,11 +11,13 @@ $events = list_event($pdo);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="styledash.css">
+    </head>
 </head>
 <body>
 
-    <!-- Sidebar -->
+   <!-- Sidebar -->
     <div class="sidebar">
         <h2>Admin Dashboard</h2>
         <ul>
@@ -24,34 +26,10 @@ $events = list_event($pdo);
             <li><a href="#">Logout</a></li>
         </ul>
     </div>
-
     <!-- Main Content -->
     <div class="main-content">
-        <h1>Manage Events</h1>
-
-        <!-- Event Creation Form -->
-        <form action="includes/dasbaord.inc.php" method="post">
-            <input type="text" name="name" placeholder="Event Name" >
-            <textarea placeholder="Event Description" name = "description"></textarea>
-            <input type="text" placeholder="Event Location" name = "location">
-            <input type="date" name="date">
-            <label for="status">Choose Status:</label>
-            <select name="status" id="status">
-                <option value="Upcoming" selected>Upcoming</option>
-                <option value="Ongoing">Ongoing</option>
-                <option value="Completed">Completed</option>
-                <option value="Cancelled">Cancelled</option>
-            </select>
-            
-          
-            <button type="submit">Add Event</button>
-        </form>
-        <?php
-            check_signup_errors();
-        ?>
-
-<h2>Events List</h2>
-        <table>
+    <h1>Event Lists</h1>
+        <table class="center-table">
             <tr>
                 <th>Name</th>
                 <th>Date</th>
@@ -70,8 +48,9 @@ $events = list_event($pdo);
                         <td><?= htmlspecialchars($event['location']) ?></td>
                         <td><?= htmlspecialchars($event['status']) ?></td>
                         <td>
-                            <a href="edit_event.php?id=<?= $event['id'] ?>" class="edit-btn">Edit</a>
-                            <a href="delete_event.php?id=<?= $event['id'] ?>" class="delete-btn" onclick="return confirm('Are you sure you want to delete this event?');">Delete</a>
+                            <a href="delete_event.php?id=<?= $event['id'] ?>" class="delete-btn" onclick="return confirm('Are you sure you want to delete this event?');">
+                            <i class="fas fa-trash-alt"></i> <!-- Delete Icon -->
+                            </a>
                         </td>
                     </tr>
                 <?php endforeach; ?>
@@ -79,14 +58,40 @@ $events = list_event($pdo);
                 <tr><td colspan="6">No events found.</td></tr>
             <?php endif; ?>
         </table>
+    </div>
 
-        <!-- Event Editing Form -->
-        <h2>Edit Event</h2>
-        <form  action="includes/dashboard.inc2.php" method="post">
-        <input type="text" name="name" placeholder="Event Name" >
-            <textarea placeholder="Event Description" name = "description" ></textarea>
-            <input type="text" placeholder="Event Location" name = "location">
-            <input type="date" name="date" >
+    <!-- Floating Add Event Button -->
+    <button class="add-event-btn" onclick="document.getElementById('addEventForm').style.display='block'">+</button>
+    
+    <!-- Floating Edit Event Button -->
+    <button class="edit-event-btn" onclick="document.getElementById('editEventForm').style.display='block'">✎</button>
+
+    <!-- Event Creation Form -->
+    <div id="addEventForm" class="modal">
+        <form action="includes/dashboard.inc.php" method="post">
+            <input type="text" name="name" placeholder="Event Name" required>
+            <textarea placeholder="Event Description" name="description" required></textarea>
+            <input type="text" placeholder="Event Location" name="location" required>
+            <input type="date" name="date" required>
+            <label for="status">Choose Status:</label>
+            <select name="status" id="status">
+                <option value="Upcoming" selected>Upcoming</option>
+                <option value="Ongoing">Ongoing</option>
+                <option value="Completed">Completed</option>
+                <option value="Cancelled">Cancelled</option>
+            </select>
+            <button type="submit">Add Event</button>
+            <button type="button" onclick="document.getElementById('addEventForm').style.display='none'">Cancel</button>
+        </form>
+    </div>
+
+    <!-- Event Editing Form -->
+    <div id="editEventForm" class="modal">
+        <form action="includes/dashboard.inc2.php" method="post">
+            <input type="text" name="name" placeholder="Event Name" required>
+            <textarea placeholder="Event Description" name="description" required></textarea>
+            <input type="text" placeholder="Event Location" name="location" required>
+            <input type="date" name="date" required>
             <label for="status">Choose Status:</label>
             <select name="status" id="status">
                 <option value="Upcoming" selected>Upcoming</option>
@@ -95,8 +100,9 @@ $events = list_event($pdo);
                 <option value="Cancelled">Cancelled</option>
             </select>
             <button type="submit">Update Event</button>
+            <button type="button" onclick="document.getElementById('editEventForm').style.display='none'">Cancel</button>
         </form>
     </div>
-    
+
 </body>
-</html>
+</html> 

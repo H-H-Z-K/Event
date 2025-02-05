@@ -53,6 +53,7 @@ $events = list_event($pdo);
 <h2>Events List</h2>
         <table>
             <tr>
+                <th>ID</th>
                 <th>Name</th>
                 <th>Date</th>
                 <th>Description</th>
@@ -64,6 +65,7 @@ $events = list_event($pdo);
             <?php if (!empty($events)): ?>
                 <?php foreach ($events as $event): ?>
                     <tr>
+                        <td><?= htmlspecialchars($event['id']) ?></td>
                         <td><?= htmlspecialchars($event['name']) ?></td>
                         <td><?= htmlspecialchars($event['date']) ?></td>
                         <td><?= htmlspecialchars($event['description']) ?></td>
@@ -71,7 +73,7 @@ $events = list_event($pdo);
                         <td><?= htmlspecialchars($event['status']) ?></td>
                         <td>
                             <a href="edit_event.php?id=<?= $event['id'] ?>" class="edit-btn">Edit</a>
-                            <a href="delete_event.php?id=<?= $event['id'] ?>" class="delete-btn" onclick="return confirm('Are you sure you want to delete this event?');">Delete</a>
+                            <a href="includes/delete_event.php?id=<?= $event['id'] ?>" class="delete-btn" onclick="return confirm('Are you sure you want to delete this event?');">Delete</a>
                         </td>
                     </tr>
                 <?php endforeach; ?>

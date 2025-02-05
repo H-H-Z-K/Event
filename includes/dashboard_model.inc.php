@@ -52,4 +52,10 @@
         $stmt = $pdo->prepare($query);
         return $stmt->execute($params);
     }
-    
+    function delete(object $pdo, int $id) {
+        $query="DELETE   FROM events WHERE id = :id";
+        $stmt=$pdo->prepare($query);
+        $stmt->bindParam(':id', $id);
+        return  $stmt->execute();
+        
+    }

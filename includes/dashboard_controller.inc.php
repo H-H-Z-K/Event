@@ -25,3 +25,7 @@ declare(strict_types=1);
  function update_event(object $pdo,string $name,array $updates){
     update($pdo,$name,$updates);
  }
+ function delete_event(object $pdo, int $id){
+    delete($pdo,$id);
+    
+ }

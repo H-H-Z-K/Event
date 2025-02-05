@@ -6,7 +6,7 @@
 }
 
 body {
-    background: url('c:\xampp\htdocs\Event-1\images\event manager.webp') no-repeat center center/cover;
+    background: url('images/event manager.webp') no-repeat center center/cover;
     display: grid;
     place-items: center;
     justify-content: center;
@@ -14,11 +14,12 @@ body {
     height: 100vh;
     padding-top: 100px;
 }
+
 .container {
     padding-bottom: 20px;
     padding-left: 10px;
     padding-right: 10px;
-    background:rgba(255, 255, 255, 0.858);;
+    background: rgba(255, 255, 255, 0.858);
     border-radius: 10px;
     text-align: center;
     width: 230px;
@@ -27,12 +28,13 @@ body {
     position: relative;
     overflow: hidden;
     flex-direction: column;
-    justify-content: center; /* Center contents */
+    justify-content: center; 
     align-items: center;
 }
+
 .logo {
     width: 130px;
-    height: auto; 
+    height: auto;
     display: block;
     margin: 0 auto 20px; 
     margin-top: 1px;
@@ -40,18 +42,21 @@ body {
     margin-left: auto;
     margin-right: auto;
 }
-h2{
+
+h2 {
     font-size: 40px;
     font-weight: 600;
     margin-bottom: 10px;
 }
+
 form {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: auto;
 }
-input[type="text"], input[type= "password"]{
+
+input[type="text"], input[type="password"] {
     width: 100%;
     padding: 10px;
     margin: 8px 0;
@@ -59,6 +64,7 @@ input[type="text"], input[type= "password"]{
     border-radius: 5px;
     font-size: 14px;
 }
+
 button {
     background: black;
     color: white;
@@ -75,6 +81,7 @@ button {
 button:hover {
     background: #333;
 }
+
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -83,5 +90,19 @@ button:hover {
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+/* Focus input effect */
+input[type="text"]:focus, input[type="password"]:focus {
+    border-color: #5b9bd5;
+    outline: none;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 480px) {
+    .container {
+        width: 80%;
+        height: auto;
     }
 }

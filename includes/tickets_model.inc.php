@@ -44,3 +44,34 @@ function list_tickets(object $pdo){
     
 
 }
+function update(object $pdo, string $Ename, array $updates) {
+    if (empty($updates)) {
+        return false; // No updates provided
+    }
+
+    $query = "UPDATE tickets SET ";
+    $params = [];
+    $setClauses = [];
+
+    foreach ($updates as $column => $value) {
+        $setClauses[] = "$column = :$column";
+        $params[":$column"] = $value;
+    }
+
+    $query .= implode(", ", $setClauses);
+    $query .= " WHERE event_name = :event_name";  // Fixed column name
+
+    $params[':event_name'] = $Ename;  // Fixed parameter binding
+
+    $stmt = $pdo->prepare($query);
+    
+    return $stmt->execute($params);
+}
+
+function delete(object $pdo, int $id) {
+    $query="DELETE   FROM tickets WHERE ticket_id = :id";
+    $stmt=$pdo->prepare($query);
+    $stmt->bindParam(':id', $id);
+    return  $stmt->execute();
+    
+}

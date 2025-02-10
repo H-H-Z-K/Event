@@ -22,10 +22,10 @@ $tickets = list_tickets($pdo);
         <h2>Admin Dashboard</h2>
    
         <ul>
-            <li><a href="#"> Manage Ticket</a></li>
+            <li><a href="dashbaord.php"> Manage Ticket</a></li>
             <li><a href="users.php">Manage Events</a></li>
             <li><a href="tickets.php">Manage Users</a><li>
-            <li><a href="#">Logout</a></li>
+            <li><a href="login.php">Logout</a></li>
         </ul>
     </div>
     <!-- Main Content -->
@@ -52,7 +52,7 @@ $tickets = list_tickets($pdo);
                        
                         <td><?= htmlspecialchars($ticket['status']) ?></td>
                         <td>
-                            <a href="includes/delete_event.php?id=<?= $event['id'] ?>" class="delete-btn" onclick="return confirm('Are you sure you want to delete this event?');"><i class="fas fa-trash"></i></a>
+                            <a href="includes/delete_tickets.php?id=<?= $ticket['ticket_id'] ?>" class="delete-btn" onclick="return confirm('Are you sure you want to delete this event?');"><i class="fas fa-trash"></i></a>
                     
                         </td>
                     </tr>
@@ -90,10 +90,10 @@ $tickets = list_tickets($pdo);
 
     <!-- Event Editing Form -->
     <div id="editEventForm" class="modal">
-        <form action="includes/tickets.inc2.php" method="post">
-        <input type="text" name="event_name" placeholder="Event Name" required>
-            <input type="text" placeholder="Seat_Number" name="seat_number" required></textarea>
-            <input type=number placeholder="price" name="price" required>
+        <form action="includes/tickets2.inc.php" method="post">
+        <input type="text" name="event_name" placeholder="Event Name" >
+            <input type="text" placeholder="Seat_Number" name="seat_number"></textarea>
+            <input type=number placeholder="price" name="price">
           
             <label for="status">Choose Status:</label>
             <select name="status" id="status">
@@ -103,10 +103,14 @@ $tickets = list_tickets($pdo);
                 <option value="Cancelled">Cancelled</option>
             </select>
           
-            <button type="submit">Update Event</button>
+            <button type="submit">Update Ticket</button>
             <button type="button" onclick="document.getElementById('editEventForm').style.display='none'">Cancel</button>
         </form>
     </div>
 
+    <?php
+    
+   check_signup_errors();
+   ?>
 </body>
 </html> 

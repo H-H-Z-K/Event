@@ -11,7 +11,7 @@ $users = list_users($pdo);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
-    <link rel="stylesheet" href="styleuser.css">
+    <link rel="stylesheet"href="styleuser.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
@@ -113,7 +113,7 @@ $users = list_users($pdo);
 }
 /* Sidebar */
 .sidebar {
-    width: 300px;
+    width: 275px;
     background-color: black;
     color: white;
     padding: 20px;
@@ -238,8 +238,9 @@ th {
     right: 120px;
     background: black;
 }
-.edit-user-btn:hover {
+.edit-user-btn:hover{
     background: #16A085;
+
 }
 /* Modal Styling */
 .modal {
@@ -269,10 +270,11 @@ th {
     background: rgba(0, 0, 0, 0.5);
     z-index: 999;
 }
+
 /* Active Modal */
 .modal.active, .modal-overlay.active {
     display: block;
 }
- </style>
+</style>
 </body>
 </html>

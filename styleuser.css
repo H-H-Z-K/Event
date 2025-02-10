@@ -133,7 +133,7 @@ th {
     right: 120px;
     background: black;
 }
-.edit-user-btn :hover{
+.edit-user-btn:hover{
     background: #16A085;
 
 }

@@ -23,7 +23,8 @@ $events = list_event($pdo);
         <ul>
             <li><a href="#">Manage Events</a></li>
             <li><a href="users.php">Manage Users</a></li>
-            <li><a href="login.php">Logout</a></li>
+            <li><a href="tickets.php">Manage Tickets</a><li>
+            <li><a href="#">Logout</a></li>
         </ul>
     </div>
     <!-- Main Content -->
@@ -50,7 +51,6 @@ $events = list_event($pdo);
                         <td><?= htmlspecialchars($event['location']) ?></td>
                         <td><?= htmlspecialchars($event['status']) ?></td>
                         <td>
-                            <a href="edit_event.php?id=<?= $event['id'] ?>" class="edit-btn">Edit</a>
                             <a href="includes/delete_event.php?id=<?= $event['id'] ?>" class="delete-btn" onclick="return confirm('Are you sure you want to delete this event?');">Delete</a>
                         </td>
                     </tr>

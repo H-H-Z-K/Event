@@ -2,10 +2,10 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
 }
 
 body {
+    font-family: 'Quicksand', sans-serif;
     background: url('images/event manager.webp') no-repeat center center/cover;
     display: grid;
     place-items: center;

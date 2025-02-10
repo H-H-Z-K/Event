@@ -51,7 +51,8 @@ $events = list_event($pdo);
                         <td><?= htmlspecialchars($event['location']) ?></td>
                         <td><?= htmlspecialchars($event['status']) ?></td>
                         <td>
-                            <a href="includes/delete_event.php?id=<?= $event['id'] ?>" class="delete-btn" onclick="return confirm('Are you sure you want to delete this event?');">Delete</a>
+                            <a href="includes/delete_event.php?id=<?= $event['id'] ?>" class="delete-btn" onclick="return confirm('Are you sure you want to delete this event?');"><i class="fas fa-trash"></i></a>
+                    
                         </td>
                     </tr>
                 <?php endforeach; ?>

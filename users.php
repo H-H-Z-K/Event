@@ -72,7 +72,7 @@ $users = list_users($pdo);
                  
                         <td>
                             <a href="edit_event.php?id=<?= $event['id'] ?>" class="edit-btn">Edit</a>
-                            <a href="includes/delete_users.php?id=<?= $user['id'] ?>" class="delete-btn" onclick="return confirm('Are you sure you want to delete this event?');">Delete</a>
+                            <a href="includes/delte_users.php?id=<?= $user['id'] ?>" class="delete-btn" onclick="return confirm('Are you sure you want to delete this event?');">Delete</a>
                         </td>
                     </tr>
                 <?php endforeach; ?>

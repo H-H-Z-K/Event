@@ -10,10 +10,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         require_once "users_controller.inc.php";
         //error handeling
         $errors=[];
-        if(is_empty($name,$description,$location,$date,$status)){
+        if(is_empty(  $name,  $email,  $pass,  $role)){
             $errors['empty']="All fields are required";
         }
-        if(event_exist($pdo,$name)){
+        if(user_exist($pdo,$name)){
             $errors['taken']="Username is taken";
         }
         require_once "session_config.php";
@@ -22,9 +22,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
             header("Location: ../register.php");
             die();
         }
-        set_users(object $pdo,string $name, string $email, string $pass, string $role);
+        set_users( $pdo, $name,  $email,  $pass,  $role);
     
-        header("Location: ../dashbaord.php?enter=success");
+        header("Location: ../users.php?enter=success");
         $pdo=null;
         $stmt=null;
         die();  

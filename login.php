@@ -24,6 +24,8 @@ require_once 'includes/login_view.inc.php';
                     <input type="password" name="password" placeholder="Password">
                     <button onclick ="showLogin()">SUBMIT</button>
                 </form>
+                <p><a href="forgot_password.php">Forgot Password?</a></p>
+                <p>Don't have an account? <a href="register.php">Sign Up</a></p>
             </div>
         </div>
     </div>

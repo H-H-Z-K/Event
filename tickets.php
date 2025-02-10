@@ -30,15 +30,16 @@ $events = list_event($pdo);
     </div>
     <!-- Main Content -->
     <div class="main-content">
-    <h1>Event Lists</h1>
+    <h1>Tickets Lists</h1>
         <table class="center-table">
             <tr>
                 <th>ID</th>
-                <th> Event Name</th>
+                <th>Name</th>
                 <th>Date</th>
                 <th>Description</th>
                 <th>Location</th>
                 <th>Status</th>
+
                 <th>Actions</th>
             </tr>
 
@@ -58,7 +59,7 @@ $events = list_event($pdo);
                     </tr>
                 <?php endforeach; ?>
             <?php else: ?>
-                <tr><td colspan="6">No events found.</td></tr>
+                <tr><td colspan="6">No tickets found.</td></tr>
             <?php endif; ?>
         </table>
     </div>
@@ -83,7 +84,7 @@ $events = list_event($pdo);
               
                 <option value="Cancelled">Cancelled</option>
             </select>
-            <button type="submit">Add Ticekts</button>
+            <button type="submit">Add Tickets</button>
             <button type="button" onclick="document.getElementById('addEventForm').style.display='none'">Cancel</button>
         </form>
     </div>
@@ -102,7 +103,7 @@ $events = list_event($pdo);
                 <option value="Completed">Completed</option>
                 <option value="Cancelled">Cancelled</option>
             </select>
-            <button type="submit">Update Event</button>
+            <button type="submit">Update Tickets</button>
             <button type="button" onclick="document.getElementById('editEventForm').style.display='none'">Cancel</button>
         </form>
     </div>

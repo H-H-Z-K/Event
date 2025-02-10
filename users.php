@@ -1,148 +1,110 @@
 <?php
 require_once "includes/db.inc.php";
 require_once 'includes/session_config.php';
-require_once "includes/users_model.inc.php";
-require_once 'includes/users_view.inc.php';
-$users = list_users($pdo);
+require_once "includes/dashboard_model.inc.php";
+require_once 'includes/dashboard_view.inc.php';
+$events = list_event($pdo);
 ?>
 <!DOCTYPE html>
 <html lang="en">
- <head>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" href="styleuser.css">
-  </head>
-  <body>
+    <link rel="stylesheet" href="styledash.css">
+    </head>
+</head>
+<body>
 
-    <!-- Sidebar -->
+   <!-- Sidebar -->
     <div class="sidebar">
         <h2>Admin Dashboard</h2>
         <ul>
-            <li><a href="#">Manage Users</a></li>
-            <li><a href="dashbaord.php">Manage Events</a></li>
-            <li><a href="#">Manage Tickets</a></li>
+            <li><a href="#">Manage Events</a></li>
+            <li><a href="users.php">Manage Users</a></li>
+            <li><a href="tickets.php">Manage Tickets</a><li>
             <li><a href="#">Logout</a></li>
-     </ul>
+        </ul>
     </div>
-
     <!-- Main Content -->
-   <div class="main-content">
-       <h2>User List</h2>
-       <table>
+    <div class="main-content">
+    <h1>Event Lists</h1>
+        <table class="center-table">
             <tr>
                 <th>ID</th>
                 <th>Name</th>
-                <th>Email</th>
-                <th>Password</th>
-                <th>Role</th>
-              
+                <th>Date</th>
+                <th>Description</th>
+                <th>Location</th>
+                <th>Status</th>
                 <th>Actions</th>
             </tr>
 
-            <?php if (!empty($users)): ?>
-                <?php foreach ($users as $user): ?>
+            <?php if (!empty($events)): ?>
+                <?php foreach ($events as $event): ?>
                     <tr>
-                        <td><?= htmlspecialchars($user['id']) ?></td>
-                        <td><?= htmlspecialchars($user['name']) ?></td>
-                        <td><?= htmlspecialchars($user['email']) ?></td>
-                        <td><?= htmlspecialchars($user['password']) ?></td>
-
-                        <td><?= htmlspecialchars($user['role']) ?></td>
-                 
+                        <td><?= htmlspecialchars($event['id']) ?></td>
+                        <td><?= htmlspecialchars($event['name']) ?></td>
+                        <td><?= htmlspecialchars($event['date']) ?></td>
+                        <td><?= htmlspecialchars($event['description']) ?></td>
+                        <td><?= htmlspecialchars($event['location']) ?></td>
+                        <td><?= htmlspecialchars($event['status']) ?></td>
                         <td>
-                            <a href="includes/delte_users.php?id=<?= $user['id'] ?>" class="delete-btn" onclick="return confirm('Are you sure you want to delete this event?');"><i class="fa fa-trash"></i></a>
+                            <a href="includes/delete_event.php?id=<?= $event['id'] ?>" class="delete-btn" onclick="return confirm('Are you sure you want to delete this event?');"><i class="fas fa-trash"></i></a>
+                    
                         </td>
                     </tr>
                 <?php endforeach; ?>
             <?php else: ?>
-                <tr><td colspan="6">No users found.</td></tr>
+                <tr><td colspan="6">No events found.</td></tr>
             <?php endif; ?>
-     </table>
-  </div>
+        </table>
+    </div>
 
-  <div class="button-container">
-    <button class="edit-user-btn" onclick="document.getElementById('editUserForm').style.display='block'">✎</button>
-    <button class="add-user-btn" onclick="document.getElementById('addUserForm').style.display='block'">+</button>
-</div>
+    <!-- Floating Add Event Button -->
+    <button class="add-event-btn" onclick="document.getElementById('addEventForm').style.display='block'">+</button>
+    
+    <!-- Floating Edit Event Button -->
+    <button class="edit-event-btn" onclick="document.getElementById('editEventForm').style.display='block'">✎</button>
 
-
-
-
-     <!-- Event Creation Form -->
-    <div id="addUserForm" class="modal">
-        <form action="includes/users.inc.php" method="post">
-        <input type="text" name="name" placeholder=" Name" >
-                    <input type="email" name="email" placeholder="Email" >
-                    <input type="password" name="password" placeholder="Password">
-            <label for="role">Choose Role:</label>
-            <select name="role" id="role">
-                <option value="admin" selected>Admin</option>
-                <option value="user">User</option>
-             </select>
-             <button type="submit">Add User</button>
-             <button type="button" onclick="document.getElementById('addUserForm').style.display='none'">Cancel</button>
-        </form>
-     </div>
-
-       <!-- Event Editing Form -->
-   <div id="editUserForm" class="modal">
-        <form  action="includes/users.inc2.php" method="post">
-              <input type="text" name="name" placeholder=" Name" >
-              <input type="email" name="email" placeholder="Email" >
-              <input type="password" name="password" placeholder="Password">
-              <label for="role">Choose Role:</label>
-               <select name="role" id="role">
-               <option value="admin" selected>Admin</option>
-               <option value="user">User</option>
-               
+    <!-- Event Creation Form -->
+    <div id="addEventForm" class="modal">
+        <form action="includes/dashboard.inc.php" method="post">
+            <input type="text" name="name" placeholder="Event Name" required>
+            <textarea placeholder="Event Description" name="description" required></textarea>
+            <input type="text" placeholder="Event Location" name="location" required>
+            <input type="date" name="date" required>
+            <label for="status">Choose Status:</label>
+            <select name="status" id="status">
+                <option value="Upcoming" selected>Upcoming</option>
+                <option value="Ongoing">Ongoing</option>
+                <option value="Completed">Completed</option>
+                <option value="Cancelled">Cancelled</option>
             </select>
-            
-         <button type="submit">Update Event</button>
-         <button type="button" onclick="document.getElementById('editUserForm').style.display='none'">Cancel</button>
+            <button type="submit">Add Event</button>
+            <button type="button" onclick="document.getElementById('addEventForm').style.display='none'">Cancel</button>
         </form>
-     </div>
-     <style>
-        .button-container {
-    position: fixed;
-    display: flex;
-    gap: 50px; /* Adds spacing between buttons */
-}
+    </div>
 
-/* Floating Buttons */
-.add-user-btn, .edit-user-btn {
-    width: 60px;
-    height: 60px;
-    font-size: 24px;
-    color: white;
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
-    transition: 0.3s;
-}
+    <!-- Event Editing Form -->
+    <div id="editEventForm" class="modal">
+        <form action="includes/dashboard.inc2.php" method="post">
+            <input type="text" name="name" placeholder="Event Name" required>
+            <textarea placeholder="Event Description" name="description" required></textarea>
+            <input type="text" placeholder="Event Location" name="location" required>
+            <input type="date" name="date" required>
+            <label for="status">Choose Status:</label>
+            <select name="status" id="status">
+                <option value="Upcoming" selected>Upcoming</option>
+                <option value="Ongoing">Ongoing</option>
+                <option value="Completed">Completed</option>
+                <option value="Cancelled">Cancelled</option>
+            </select>
+            <button type="submit">Update Event</button>
+            <button type="button" onclick="document.getElementById('editEventForm').style.display='none'">Cancel</button>
+        </form>
+    </div>
 
-.add-user-btn {
-    background: black;
-}
-
-.add-user-btn:hover {
-    background: #16A085;
-}
-
-.edit-user-btn {
-    background: black;
-}
-
-.edit-user-btn:hover {
-    background: #16A085;
-}
-
-     </style>
 </body>
-</html>
+</html> 

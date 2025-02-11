@@ -22,15 +22,15 @@ $tickets = list_tickets($pdo);
         <h2>Admin Dashboard</h2>
    
         <ul>
-            <li><a href="dashbaord.php"> Manage Ticket</a></li>
-            <li><a href="users.php">Manage Events</a></li>
-            <li><a href="tickets.php">Manage Users</a><li>
+            <li><a href="#"> Manage Ticket</a></li>
+            <li><a href="dashbaord.php">Manage Events</a></li>
+            <li><a href="users.php">Manage Users</a><li>
             <li><a href="login.php">Logout</a></li>
         </ul>
     </div>
     <!-- Main Content -->
     <div class="main-content">
-    <h1>Event Lists</h1>
+    <h1>Ticekt Lists</h1>
         <table class="center-table">
             <tr>
                 <th>ID</th>
@@ -72,9 +72,9 @@ $tickets = list_tickets($pdo);
     <!-- Event Creation Form -->
     <div id="addEventForm" class="modal">
         <form action="includes/tickets.inc.php" method="post">
-            <input type="text" name="event_name" placeholder="Event Name" required>
-            <input type="text" placeholder="Seat_Number" name="seat_number" required></textarea>
-            <input type=number placeholder="price" name="price" required>
+            <input type="text" name="event_name" placeholder="Event Name" >
+            <input type="text" placeholder="Seat_Number" name="seat_number"></textarea>
+            <input type=number placeholder="price" name="price">
           
             <label for="status">Choose Status:</label>
             <select name="status" id="status">

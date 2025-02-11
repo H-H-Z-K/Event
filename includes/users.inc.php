@@ -19,7 +19,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         require_once "session_config.php";
         if($errors){
             $_SESSION['errors']=$errors;
-            header("Location: ../register.php");
+            header("Location: ../users.php");
             die();
         }
         set_users( $pdo, $name,  $email,  $pass,  $role);
@@ -40,6 +40,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
 }
 else{
-    header("Location: ../dashbaord.php");
+    header("Location: ../users.php");
     die();
 }

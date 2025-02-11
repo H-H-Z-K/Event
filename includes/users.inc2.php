@@ -20,17 +20,18 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         //error handeling
         $errors=[];
         
-        if(!event_exist($pdo,$name)){
-            $errors['not found']="event  doesnot exist";
+        
+        if(!user_exist($pdo,$name)){
+            $errors['not found']="user  doesnot exist";
         }
         require_once "session_config.php";
         if($errors){
             $_SESSION['errors']=$errors;
-            header("Location: ../dashboard.php");
+            header("Location: ../users.php");
             die();
         }
         update_users($pdo, $name, $updates);
-        header("Location: ../dashbaord.php?updater=success");
+        header("Location: ../users.php?updater=success");
         $pdo=null;
         $stmt=null;
         die();  

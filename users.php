@@ -102,7 +102,7 @@ $users = list_users($pdo);
          <button type="submit">Update Event</button>
          <button type="button" onclick="document.getElementById('editUserForm').style.display='none'">Cancel</button>
         </form>
-     </div>
+      
      <style>
         .button-container {
     position: fixed;
@@ -144,5 +144,8 @@ $users = list_users($pdo);
 }
 
      </style>
+     <?php
+            check_signup_errors();
+     ?>
 </body>
 </html>

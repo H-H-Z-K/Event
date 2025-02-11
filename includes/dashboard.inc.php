@@ -15,12 +15,12 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
             $errors['empty']="All fields are required";
         }
         if(event_exist($pdo,$name)){
-            $errors['taken']="Username is taken";
+            $errors['taken']="Eevet already exist!";
         }
         require_once "session_config.php";
         if($errors){
             $_SESSION['errors']=$errors;
-            header("Location: ../register.php");
+            header("Location: ../dashbaord.php");
             die();
         }
 

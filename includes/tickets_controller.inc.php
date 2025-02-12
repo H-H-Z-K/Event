@@ -8,9 +8,7 @@ function is_empty(string $Ename, string $seat, int $price, string $status) {
    }
 }
 
- function ticket_exist(object $pdo,string $Ename){
     if(  getTicekts($pdo,$Ename)){
-        return true;
     }
     return false;
  }

@@ -1,9 +1,9 @@
 <?php
 require_once "includes/db.inc.php";
 require_once 'includes/session_config.php';
-require_once "includes/dashboard_model.inc.php";
-require_once 'includes/dashboard_view.inc.php';
-$events = list_event($pdo);
+require_once "includes/tickets_model.inc.php";
+require_once 'includes/tickets_view.inc.php';
+$tickets = list_tickets($pdo);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -34,6 +34,7 @@ $events = list_event($pdo);
         <table class="center-table">
             <tr>
                 <th>ID</th>
+<<<<<<< HEAD
                 <th>Name</th>
                 <th>Date</th>
                 <th>Description</th>
@@ -41,17 +42,25 @@ $events = list_event($pdo);
                 <th>Status</th>
 
                 <th>Actions</th>
+=======
+                <th> Event Name</th>
+                <th>Number of Seats</th>
+                <th>Price</th>
+                
+                <th>Status</th>
+                
+>>>>>>> 7246ec3b0d20431975929224bbf053ad387116a7
             </tr>
 
-            <?php if (!empty($events)): ?>
-                <?php foreach ($events as $event): ?>
+            <?php if (!empty($tickets)): ?>
+                <?php foreach ($tickets as $ticket): ?>
                     <tr>
-                        <td><?= htmlspecialchars($event['id']) ?></td>
-                        <td><?= htmlspecialchars($event['name']) ?></td>
-                        <td><?= htmlspecialchars($event['date']) ?></td>
-                        <td><?= htmlspecialchars($event['description']) ?></td>
-                        <td><?= htmlspecialchars($event['location']) ?></td>
-                        <td><?= htmlspecialchars($event['status']) ?></td>
+                        <td><?= htmlspecialchars($ticket['ticket_id']) ?></td>
+                        <td><?= htmlspecialchars($ticket['event_name']) ?></td>
+                        <td><?= htmlspecialchars($ticket['seat_number']) ?></td>
+                        <td><?= htmlspecialchars($ticket['price']) ?></td>
+                       
+                        <td><?= htmlspecialchars($ticket['status']) ?></td>
                         <td>
                             <a href="includes/delete_event.php?id=<?= $event['id'] ?>" class="delete-btn" onclick="return confirm('Are you sure you want to delete this event?');"><i class="fas fa-trash"></i></a>
                     
@@ -91,19 +100,24 @@ $events = list_event($pdo);
 
     <!-- Event Editing Form -->
     <div id="editEventForm" class="modal">
-        <form action="includes/dashboard.inc2.php" method="post">
-            <input type="text" name="name" placeholder="Event Name" required>
-            <textarea placeholder="Event Description" name="description" required></textarea>
-            <input type="text" placeholder="Event Location" name="location" required>
-            <input type="date" name="date" required>
+        <form action="includes/tickets.inc2.php" method="post">
+        <input type="text" name="event_name" placeholder="Event Name" required>
+            <input type="text" placeholder="Seat_Number" name="seat_number" required></textarea>
+            <input type=number placeholder="price" name="price" required>
+          
             <label for="status">Choose Status:</label>
             <select name="status" id="status">
-                <option value="Upcoming" selected>Upcoming</option>
-                <option value="Ongoing">Ongoing</option>
-                <option value="Completed">Completed</option>
+                <option value="pending" selected>Upcoming</option>
+                <option value="confirmed">Confrimed</option>
+              
                 <option value="Cancelled">Cancelled</option>
             </select>
+<<<<<<< HEAD
             <button type="submit">Update Tickets</button>
+=======
+          
+            <button type="submit">Update Event</button>
+>>>>>>> 7246ec3b0d20431975929224bbf053ad387116a7
             <button type="button" onclick="document.getElementById('editEventForm').style.display='none'">Cancel</button>
         </form>
     </div>

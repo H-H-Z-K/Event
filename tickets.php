@@ -33,23 +33,13 @@ $tickets = list_tickets($pdo);
     <h1>Tickets Lists</h1>
         <table class="center-table">
             <tr>
-                <th>ID</th>
-<<<<<<< HEAD
-                <th>Name</th>
-                <th>Date</th>
-                <th>Description</th>
-                <th>Location</th>
-                <th>Status</th>
-
                 <th>Actions</th>
-=======
                 <th> Event Name</th>
                 <th>Number of Seats</th>
                 <th>Price</th>
                 
-                <th>Status</th>
+                 <th>Status</th>
                 
->>>>>>> 7246ec3b0d20431975929224bbf053ad387116a7
             </tr>
 
             <?php if (!empty($tickets)): ?>

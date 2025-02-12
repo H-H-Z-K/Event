@@ -24,7 +24,7 @@ $events = list_event($pdo);
             <li><a href="#">Manage Events</a></li>
             <li><a href="users.php">Manage Users</a></li>
             <li><a href="tickets.php">Manage Tickets</a><li>
-            <li><a href="#">Logout</a></li>
+            <li><a href="login.php">Logout</a></li>
         </ul>
     </div>
     <!-- Main Content -->
@@ -71,10 +71,10 @@ $events = list_event($pdo);
     <!-- Event Creation Form -->
     <div id="addEventForm" class="modal">
         <form action="includes/dashboard.inc.php" method="post">
-            <input type="text" name="name" placeholder="Event Name" required>
-            <textarea placeholder="Event Description" name="description" required></textarea>
-            <input type="text" placeholder="Event Location" name="location" required>
-            <input type="date" name="date" required>
+            <input type="text" name="name" placeholder="Event Name">
+            <textarea placeholder="Event Description" name="description"></textarea>
+            <input type="text" placeholder="Event Location" name="location">
+            <input type="date" name="date">
             <label for="status">Choose Status:</label>
             <select name="status" id="status">
                 <option value="Upcoming" selected>Upcoming</option>
@@ -90,10 +90,10 @@ $events = list_event($pdo);
     <!-- Event Editing Form -->
     <div id="editEventForm" class="modal">
         <form action="includes/dashboard.inc2.php" method="post">
-            <input type="text" name="name" placeholder="Event Name" required>
-            <textarea placeholder="Event Description" name="description" required></textarea>
-            <input type="text" placeholder="Event Location" name="location" required>
-            <input type="date" name="date" required>
+            <input type="text" name="name" placeholder="Event Name">
+            <textarea placeholder="Event Description" name="description"></textarea>
+            <input type="text" placeholder="Event Location" name="location">
+            <input type="date" name="date">
             <label for="status">Choose Status:</label>
             <select name="status" id="status">
                 <option value="Upcoming" selected>Upcoming</option>
@@ -105,6 +105,20 @@ $events = list_event($pdo);
             <button type="button" onclick="document.getElementById('editEventForm').style.display='none'">Cancel</button>
         </form>
     </div>
+    <script>
+document.addEventListener("DOMContentLoaded", function() {
+    let toast = document.getElementById("toast-message");
+    if (toast) {
+        setTimeout(() => {
+            toast.style.opacity = "0";
+        }, 3000); // Hide after 3 seconds
+    }
+});
+</script>
+
+    <?php
+           check_signup_errors();
+           ?>
 
 </body>
 </html> 

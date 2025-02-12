@@ -22,8 +22,8 @@ $users = list_users($pdo);
         <ul>
             <li><a href="#">Manage Users</a></li>
             <li><a href="dashbaord.php">Manage Events</a></li>
-            <li><a href="#">Manage Tickets</a></li>
-            <li><a href="#">Logout</a></li>
+            <li><a href="tickets.php">Manage Tickets</a></li>
+            <li><a href="login.php">Logout</a></li>
      </ul>
     </div>
 

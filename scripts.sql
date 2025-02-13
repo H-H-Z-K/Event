@@ -21,12 +21,11 @@ CREATE TABLE events (
  
  CREATE TABLE tickets (
     ticket_id INT AUTO_INCREMENT PRIMARY KEY,
-
     event_name VARCHAR(50),
     seat_number VARCHAR(50),
     price DECIMAL(10,2) NOT NULL,
     status ENUM('pending', 'confirmed', 'cancelled') DEFAULT 'pending',
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
     
 );

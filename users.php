@@ -29,7 +29,7 @@ $users = list_users($pdo);
 
     <!-- Main Content -->
    <div class="main-content">
-       <h2>User List</h2>
+       <h2>Users List</h2>
        <table>
             <tr>
                 <th>ID</th>
@@ -101,19 +101,15 @@ $users = list_users($pdo);
          <button type="submit">Update User</button>
          <button type="button" onclick="document.getElementById('editUserForm').style.display='none'">Cancel</button>
         </form>
-<<<<<<< HEAD
       
      <style>
         .button-container {
     position: fixed;
-=======
-    </div>
-    <style>
+        }
         body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
->>>>>>> 71ffb2f87a7b0f37cfe27b9333d8fa650b7f718d
     display: flex;
     height: 100vh;
     background-color: #f4f4f4;
@@ -160,7 +156,7 @@ $users = list_users($pdo);
     text-align: left;
 }
 .main-content {
-    margin-left: 160px;
+    margin-left: 200px;
     margin-bottom:100px;
     padding: 10px;
     width: calc(100% - 320px);
@@ -205,8 +201,9 @@ form button:hover {
 
 /* Events List */
 table {
-    width: 80%;
+    width: 50%;
     margin-top: 20px;
+    margin-left: 140px;
     border-collapse: collapse;
 }
 
@@ -265,8 +262,6 @@ th {
     border-radius: 10px;
     z-index: 1000;
 }
-
-<<<<<<< HEAD
      </style>
      <?php
             check_signup_errors();

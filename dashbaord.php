@@ -29,7 +29,7 @@ $events = list_event($pdo);
     </div>
     <!-- Main Content -->
     <div class="main-content">
-    <h1>Event Lists</h1>
+    <h1>Events List</h1>
         <table class="center-table">
             <tr>
                 <th>ID</th>

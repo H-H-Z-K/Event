@@ -29,7 +29,7 @@ $users = list_users($pdo);
 
     <!-- Main Content -->
    <div class="main-content">
-       <h2>User List</h2>
+       <h2>Users List</h2>
        <table>
             <tr>
                 <th>ID</th>

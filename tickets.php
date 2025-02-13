@@ -30,15 +30,19 @@ $tickets = list_tickets($pdo);
     </div>
     <!-- Main Content -->
     <div class="main-content">
+<<<<<<< HEAD
     <h1>Ticekt Lists</h1>
+=======
+    <h1>Tickets Lists</h1>
+>>>>>>> 71ffb2f87a7b0f37cfe27b9333d8fa650b7f718d
         <table class="center-table">
             <tr>
-                <th>ID</th>
+                <th>Actions</th>
                 <th> Event Name</th>
                 <th>Number of Seats</th>
                 <th>Price</th>
                 
-                <th>Status</th>
+                 <th>Status</th>
                 
             </tr>
 
@@ -83,7 +87,7 @@ $tickets = list_tickets($pdo);
               
                 <option value="Cancelled">Cancelled</option>
             </select>
-            <button type="submit">Add Ticekts</button>
+            <button type="submit">Add Tickets</button>
             <button type="button" onclick="document.getElementById('addEventForm').style.display='none'">Cancel</button>
         </form>
     </div>
@@ -102,8 +106,16 @@ $tickets = list_tickets($pdo);
               
                 <option value="Cancelled">Cancelled</option>
             </select>
+<<<<<<< HEAD
+            <button type="submit">Update Tickets</button>
+=======
           
+<<<<<<< HEAD
+            <button type="submit">Update Event</button>
+>>>>>>> 7246ec3b0d20431975929224bbf053ad387116a7
+=======
             <button type="submit">Update Ticket</button>
+>>>>>>> 0fc698266058f96d360a2285fc32993225020bc2
             <button type="button" onclick="document.getElementById('editEventForm').style.display='none'">Cancel</button>
         </form>
     </div>

@@ -203,7 +203,7 @@ form button:hover {
 table {
     width: 50%;
     margin-top: 20px;
-    margin-left: 140px;
+    margin-left: 300px;
     border-collapse: collapse;
 }
 

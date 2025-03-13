@@ -30,8 +30,7 @@ $tickets = list_tickets($pdo);
     </div>
     <!-- Main Content -->
     <div class="main-content">
-
-    <h1>Tickets List</h1>
+    <h1>Ticekt Lists</h1>
         <table class="center-table">
             <tr>
                 <th>Actions</th>
